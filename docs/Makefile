@@ -6,7 +6,7 @@
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
-BUILDDIR      = ../../webexample
+BUILDDIR      = build
 PDFBUILDDIR   = /tmp
 PDF           = ../manual.pdf
 
@@ -15,6 +15,10 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 .PHONY: help Makefile
+
+github:
+	@make html
+	@cp -ar build/html/* ../
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
